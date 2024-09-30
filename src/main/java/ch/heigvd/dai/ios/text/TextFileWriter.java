@@ -11,6 +11,11 @@ public class TextFileWriter implements Writable {
 
   @Override
   public void write(String filename, int sizeInBytes) {
-    throw new UnsupportedOperationException("Please remove this exception and implement this method.");
+    try (Writer writer = new FileWriter(filename)) {
+      writer.write((sizeInBytes));
+    }
+    catch (Exception e) {
+      throw new UnsupportedOperationException("Please remove this exception and implement this method.");
+    }
   }
 }
